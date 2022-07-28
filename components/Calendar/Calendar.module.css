@@ -1,0 +1,31 @@
+
+
+.calendar {
+    width: 40vw;
+    height: 50vh;
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-top: 10vh;
+}
+
+.calendarDay {
+    color: #22292b;
+    text-align: center;
+    cursor: pointer;
+    border-top: 1px solid #2C3639;
+}
+
+.calendarDayToday {
+    background-color: #4a6163;
+}
+
+.calendarDay span {
+    color: #22292b;
+}
+
+.calendarDay:hover {
+    background-color: #384447;
+    transition: 0.3s ease-in;
+}

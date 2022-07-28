@@ -1,0 +1,22 @@
+.aboutStatistic {
+    font-size: 60px;
+}
+
+.aboutStatistic span {
+    color: #36AE7C;
+    opacity: 70%;
+}
+
+.aboutComment {
+    font-size: 20px;
+    margin-left: 20px;
+    font-weight: 500;
+}
+
+.aboutDay {
+    width: max-content;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: baseline;
+}

@@ -1,0 +1,17 @@
+
+
+.dayInfo {
+    width: max-content;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+.dayWeek {
+    font-size: 32px;
+    margin-left: 25px;
+    letter-spacing: 3px;
+}
+
+.explicitDate {
+    font-size: 32px;
+}

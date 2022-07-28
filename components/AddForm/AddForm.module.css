@@ -1,0 +1,9 @@
+
+.hideForm {
+    display: none;
+}
+
+.showForm {
+    display: block;
+    margin-top: 5vh;
+}

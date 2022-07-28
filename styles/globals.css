@@ -1,26 +1,29 @@
+@import '../components/ToDoList/styles.css';
+@import 'antd/dist/antd.css';
+
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    padding: 0;
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    background-color: #3F4E4F;
+    overflow: hidden;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
+    color: #2C3639;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.appTitle {
+    font-size: 40px;
+    font-weight: bold;
+    letter-spacing: 5px;
+    margin: 20px 100px;
+    color: #2C3639;
 }
