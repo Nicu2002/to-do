@@ -8,14 +8,16 @@ const useDayListHook = (data) => {
     const dispatch = useDispatch();
 
     useEffect(()=> {
-        dispatch(loadData(data[0].tasks));
+        if(data.length !== 0) {
+            dispatch(loadData(data[0].tasks));
+        }
     }, []);
 
     const router = useRouter();
     const day = useSelector(state => state.tasks);
     const tasks = day.tasks;
-
     const tasksStatus = ()=> {
+
         let tasksDone = 0;
         for(let i = 0; i < tasks.length; i++) {
             if(tasks[i].status === "done") {
@@ -24,9 +26,12 @@ const useDayListHook = (data) => {
         }
         return tasksDone;
     }
-
     const pushRoute = ()=> {
+
         router.push("/");
+    }
+    if(data.length === 0 && !tasks) {
+        return {pushRoute, tasks: []};
     }
 
     return {pushRoute, tasksStatus, tasks}

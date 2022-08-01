@@ -16,7 +16,7 @@ const AddForm = () => {
     const taskTitle = useRef();
     const taskDescription = useRef();
     const onAddTask = async ()=> {
-
+        setIsOpen(false);
         const data = {date: router.query.day, task: {title: taskTitle.current.input.value, description: taskDescription.current.resizableTextArea.props.value, status: "pending"}};
         const response = await fetch('http://localhost:4000/day/newTask', {
             method: 'POST',

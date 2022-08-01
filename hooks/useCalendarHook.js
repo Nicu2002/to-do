@@ -16,7 +16,7 @@ const useCalendarHook = () => {
         cells.push(
             <div key={uuid()}
                  className={i === date.getDate() ? `${style.calendarDayToday} ${style.calendarDay}` : style.calendarDay}
-                 onClick={(e)=> calendar.includes(`${i}`) ? openDayDetails(i): openDayNoTasks()}>
+                 onClick={()=>  openDayDetails(i)}>
                 {calendar.includes(`${i}`) ? <Badge color="#36AE7C" text={i}/> : i}
             </div>
         );

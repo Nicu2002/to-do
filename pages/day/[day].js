@@ -9,12 +9,13 @@ import useDayListHook from "../../hooks/useDayListHook";
 
 
 const DayList = ({data}) => {
-    const {tasks, pushRoute, tasksStatus} = useDayListHook(data);
 
+    const {tasks, pushRoute, tasksStatus} = useDayListHook(data);
+    const pageFormat = tasks.length !== 0 ? <AboutDay taskDone={tasksStatus()} taskNumber={tasks.length}/> : null;
     return (
         <div>
             <HomeOutlined onClick={pushRoute} style={{fontSize: "30px", cursor: "pointer", margin: "20px 40px"}}/>
-            <AboutDay taskDone={tasksStatus()} taskNumber={tasks.length}/>
+            {pageFormat}
             <ToDoList tasks={tasks}/>
             <AddForm/>
         </div>
