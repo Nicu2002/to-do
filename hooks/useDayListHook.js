@@ -17,7 +17,9 @@ const useDayListHook = (data) => {
     const day = useSelector(state => state.tasks);
     const tasks = day.tasks;
     const tasksStatus = ()=> {
-
+        if(tasks.length === 0) {
+            return
+        }
         let tasksDone = 0;
         for(let i = 0; i < tasks.length; i++) {
             if(tasks[i].status === "done") {

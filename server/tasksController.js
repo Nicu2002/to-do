@@ -35,9 +35,23 @@ class tasksController {
     }
     async deleteTask(req, res) {
         try{
-            const filtredTasks = req.body.tasks.filter(item => item._id !== req.body.id);
-            await Day.updateOne({date: req.body.date}, {tasks: [...filtredTasks]});
+            if(req.body.tasks.length === 1) {
+                await Day.findOneAndDelete({date: req.body.date});
+            }
+            else {
+                // const filteredTasks = req.body.tasks.filter(item => item._id !== req.body.id);
+                await Day.updateOne({date: req.body.date}, {tasks: [...req.body.tasks]});
+            }
             res.send("deleted task");
+
+        } catch (e) {
+            console.log(e);
+        }
+    }
+    async doneTask(req, res) {
+        try{
+            await Day.updateOne({date: req.body.date}, {tasks: [...req.body.tasks]})
+            res.send("task status updated");
 
         } catch (e) {
             console.log(e);

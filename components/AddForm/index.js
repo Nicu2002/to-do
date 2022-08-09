@@ -1,36 +1,10 @@
-import {useRef, useState} from "react";
-import {useRouter} from "next/router";
 import {Button, Form, Input} from "antd";
 import style from './AddForm.module.css';
-import {useDispatch} from "react-redux";
-import {addTask} from "../../store/tasksSlice";
+import useAddFormHook from "../../hooks/useAddFormHook";
+
 
 const AddForm = () => {
-    const dispatch = useDispatch();
-    const [isOpen, setIsOpen] = useState(false);
-    const router = useRouter();
-
-    const openAddForm = (condition)=> {
-        setIsOpen(condition);
-    }
-    const taskTitle = useRef();
-    const taskDescription = useRef();
-    const onAddTask = async ()=> {
-        setIsOpen(false);
-        const data = {date: router.query.day, task: {title: taskTitle.current.input.value, description: taskDescription.current.resizableTextArea.props.value, status: "pending"}};
-        const response = await fetch('http://localhost:4000/day/newTask', {
-            method: 'POST',
-            headers: {
-                "Content-Type": "application/json",
-                'Access-Control-Allow-Origin': 'http://localhost:3000',
-                'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE'
-            },
-            body: JSON.stringify(data)
-        })
-        const json = await response.json();
-        dispatch(addTask(json));
-    }
-
+    const {isOpen, openAddForm, taskTitle, taskDescription, onAddTask} = useAddFormHook();
     return (
         <>
             <Button type="primary"
